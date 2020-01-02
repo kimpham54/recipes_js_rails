@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <title>Recipes App</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Recipe App</h1>
+    <div id="new-recipe-container">
+      <form id="new-recipe-form">
+        <input type="text" name="recipe-body" id="new-recipe-body">
+        <input type="submit" value="Save recipe">
+      </form>
+    </div>
+    <div id="recipes-content">
+      <ul id="recipes-container">
+
+      </ul>
+      <div id="recipe-show">
+
+      </div>
+    </div>
+  </div>
+  </div>
+  <script type="text/javascript" src="src/components/recipe.js"></script>
+  <script src="src/components/recipes.js"></script>
+  <script src="src/components/app.js"></script>
+  <script src="src/adapters/RecipesAdapter.js"></script>
+  <script src="src/index.js"></script>
+</body>
+
+</html>
