@@ -11,7 +11,10 @@ class RecipesAdapter {
 
 	createRecipe(value) {
 		const recipe = {
-			body: value,
+			title: value,
+			instructions: value,
+			category: value,
+			url: value,
 		}
 
 		return fetch(this.baseUrl, {
@@ -27,7 +30,10 @@ class RecipesAdapter {
 
 	updateRecipe(value, id){
 		const recipe = {
-			body: value,
+			title: value,
+			instructions: value,
+			category: value,
+			url: value,
 		}
 
 		return fetch(`${this.baseUrl}/${id}`, {

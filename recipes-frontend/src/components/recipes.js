@@ -14,17 +14,19 @@ class Recipes{
 		this.recipeForm = document.getElementById('new-recipe-form')
 		this.recipeForm.addEventListener('submit', this.createRecipe.bind(this))
 		this.recipesContainer.addEventListener('dblclick', this.handleRecipeClick.bind(this))
-		this.body.addEventListener('blur', this.updateRecipe.bind(this), true)
+		this.recipesContainer.addEventListener('blur', this.updateRecipe.bind(this), true)
+		// updateRecipe previously used body
 	}
 
 	createRecipe(e){
 		e.preventDefault()
 		const value = this.newRecipeBody.value
 		this.adapter.createRecipe(value).then(recipe => {
-			// console.log(recipe)
+			console.log(recipe)
 			this.recipes.push(new Recipe(recipe))
 			this.newRecipeBody.value = ''
 			// single page delete form value after submit
+			console.log(recipe)
 			this.render()
 		})
 
@@ -45,6 +47,7 @@ class Recipes{
 	}
 
 	updateRecipe(e){
+		console.log(e.target)
 		const li = e.target
 		li.contentEditable = false
 		li.classList.remove('editable')
@@ -52,6 +55,7 @@ class Recipes{
 		const id = li.dataset.id
 		console.log(id)
 		this.adapter.updateRecipe(newValue, id)
+		
 
 	}
 
