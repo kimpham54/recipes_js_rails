@@ -38,3 +38,24 @@ ul {
   grid-template-columns: 2fr 1fr;
   grid-gap: 10px;
 }
+
+
+
+
+
+
+
+/* Style buttons */
+.deletebtn {
+  background-color: Black; /* Blue background */
+  border: none; /* Remove borders */
+  color: white; /* White text */
+  padding: 5px 5px; /* Some padding */
+  font-size: 10px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+/* Darker background on mouse-over */
+.deletebtn:hover {
+  background-color: Tomato;
+}
