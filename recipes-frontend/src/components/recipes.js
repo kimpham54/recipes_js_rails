@@ -8,22 +8,17 @@ class Recipes{
 	}
 
 	initBindingsAndEventListeners(){
-		// this.delbtn = document.getElementsByClassName('deletebtn')
 		this.recipesContainer = document.getElementById('recipes-container')
 		this.body = document.querySelector('body')
 		this.newRecipeBody = document.getElementById('new-recipe-body')
 		this.newRecipeInstructions = document.getElementById('new-recipe-instructions')
 		this.newRecipeCategory = document.getElementById('new-recipe-category')
 		this.newRecipeUrl = document.getElementById('new-recipe-url')
-		// this.lititle = document.getElementsByClassName('li-title')
-		// this.licategory = document.getElementsByClassName('li-category')
-		// this.liurl = document.getElementsByClassName('li-url')
 
 		this.recipeForm = document.getElementById('new-recipe-form')
 		this.recipeForm.addEventListener('submit', this.createRecipe.bind(this))
 		this.recipesContainer.addEventListener('dblclick', this.handleRecipeDoubleClick.bind(this))
 		this.recipesContainer.addEventListener('blur', this.updateRecipe.bind(this), true)
-		// this.recipesContainer.addEventListener('click', function(){console.log("hello")})
 		this.recipesContainer.addEventListener('click', this.handleRecipeSingleClick.bind(this))
 		// updateRecipe previously used body
 	}
@@ -76,21 +71,6 @@ class Recipes{
 		// const newValue = li.innerHTML
 		const id = li.dataset.id
 		console.log(e.target)
-
-		// if (e.target.className == 'li-title'){
-		// 	var vartitle = e.target.innerHTML
-		// 	console.log("the title is" + vartitle)
-		// }
-
-		// if (e.target.className == 'li-category'){
-		// 	var varcategory = e.target.innerHTML
-		// }
-
-		// if (e.target.className == 'li-url'){
-		// 	var varurl = e.target.innerHTML
-		// }		
-
-		// let title = this.lititle[id-1].innerHTML
 		let title = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-title`).innerHTML
 		let category = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-category`).innerHTML
 		let url = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-url`).innerHTML
@@ -98,23 +78,9 @@ class Recipes{
 		console.log("title is " + title)
 		console.log("category is " + category)
 		console.log("url is " + url)
-		// let url = this.liurl[id-1].innerHTML
-
-		// console.log("innerhtml omg is" + document.querySelector(`li[data-id='${CSS.escape(id)}'].li-category`).innerHTML)
-		// console.log("innerhtml is" + document.querySelector("li[data-id='2'].li-category").innerHTML)
 		console.log("e.target id is " + id)
-		// console.log("li title dataset id " + this.lititle.innerHTML)
 		console.log("e.target classname" + e.target.className)
-		// let title = this.lititle[id-1].innerHTML
-		// let category = this.licategory[id-1].innerHTML
-		// let url = this.liurl[id-1].innerHTML
-		// const category = li.attr('category')
-		// const url = li.attr('url')
 		console.log("li.dataset.id is " + id)
-		// console.log("li title is " + vartitle)
-		// console.log("li cat is " + varcategory)
-		// console.log("li url is " + varurl)
-		// this.adapter.updateRecipe(newValue, id)
 		this.adapter.updateRecipe(title, category, url, id)
 		// better if updated just one field only, rest or spread or optional arguments?
 		
