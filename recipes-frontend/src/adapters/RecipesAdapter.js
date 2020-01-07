@@ -9,11 +9,13 @@ class RecipesAdapter {
 		return fetch(this.baseUrl).then(res => res.json())
 	}
 
-	createRecipe(value, value3, value4) {
+	createRecipe(value, value2, value3, value4, value5) {
 		const recipe = {
 			title: value,
+			instructions: value2,
 			category: value3,
 			url: value4,
+			image: value5,
 		}
 
 		return fetch(this.baseUrl, {

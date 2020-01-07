@@ -14,6 +14,7 @@ class Recipes{
 		this.newRecipeInstructions = document.getElementById('new-recipe-instructions')
 		this.newRecipeCategory = document.getElementById('new-recipe-category')
 		this.newRecipeUrl = document.getElementById('new-recipe-url')
+		this.newRecipeImage = document.getElementById('new-recipe-image')
 
 		this.recipeForm = document.getElementById('new-recipe-form')
 		this.recipeForm.addEventListener('submit', this.createRecipe.bind(this))
@@ -29,7 +30,9 @@ class Recipes{
 		const value2 = this.newRecipeInstructions.value
 		const value3 = this.newRecipeCategory.value
 		const value4 = this.newRecipeUrl.value
-		this.adapter.createRecipe(value, value2, value3, value4).then(recipe => {
+		const value5 = this.newRecipeImage.value
+		console.log("value5 is"+value5)
+		this.adapter.createRecipe(value, value2, value3, value4, value5).then(recipe => {
 			this.recipes.push(new Recipe(recipe))
 			this.newRecipeBody.value = ''
 			this.newRecipeInstructions.value = ''
@@ -74,6 +77,7 @@ class Recipes{
 		let title = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-title`).innerHTML
 		let category = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-category`).innerHTML
 		let url = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-url`).innerHTML
+		// future enhancement: update image
 		
 		console.log("title is " + title)
 		console.log("category is " + category)

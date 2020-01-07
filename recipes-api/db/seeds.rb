@@ -26,7 +26,8 @@ Recipe.create([
 	Serve hot compote over stack of pancakes and dust with powdered sugar.
 	Enjoy!', 
 	category: 'breakfast', 
-	url: 'https://tasty.co/recipe/lemon-ricotta-pancakes' },
+	url: 'https://tasty.co/recipe/lemon-ricotta-pancakes',
+	image: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/tips/e8898d408600431294f8d160dff660bf.jpeg' },
 
 { user_id: 1, 
 	title:'One-Pot Vegan Swedish "Meatball" Pasta', 
@@ -37,7 +38,8 @@ Recipe.create([
 	Garnish with parsley.
 	Enjoy!', 
 	category: 'pasta', 
-	url: 'https://tasty.co/recipe/one-pot-vegan-swedish-meatball-pasta' },
+	url: 'https://tasty.co/recipe/one-pot-vegan-swedish-meatball-pasta',
+	image: 'https://img.buzzfeed.com/tasty-app-user-assets-prod-us-east-1/tips/aeab517dcea646229cf67b2b7d121006.jpeg' },
 
 { user_id: 2, 
 	title:'Homemade Vegetarian Chili', 
@@ -47,13 +49,15 @@ Recipe.create([
 	For the best texture and flavor, transfer 1 ½ cups of the chili to a blender, making sure to get some of the liquid portion. Securely fasten the lid and blend until smooth (watch out for hot steam), then pour the blended mixture back into the pot. (Or, you can blend the chili briefly with an immersion blender, or mash the chili with a potato masher until it reaches a thicker, more chili-like consistency.)
 	Add the chopped cilantro, stir to blend, and then mix in the vinegar, to taste. Add salt to taste, too—I added ¼ teaspoon more at this point. Divide the mixture into individual bowls and serve with garnishes of your choice. This chili will keep well in the refrigerator for about 4 days or you can freeze it for longer-term storage.', 
 	category: 'vegetarian', 
-	url: 'https://cookieandkate.com/vegetarian-chili-recipe/' },
+	url: 'https://cookieandkate.com/vegetarian-chili-recipe/',
+	image: 'https://cookieandkate.com/images/2015/11/vegetarian-chili-recipe-6.jpg' },
 
 { user_id: 2, 
 	title:'Red Pesto Pasta', 
 	instructions: 'Cook anchovies, garlic, oil, and walnuts in a small saucepan over medium heat, stirring often, until walnuts are deeply golden and garlic is just beginning to turn golden, 4–5 minutes. Add tomato paste and cook, stirring often, until it turns a shade darker, about 2 minutes. Remove pan from heat and let cool 5 minutes.', 
 	category: 'pasta', 
-	url: 'https://www.bonappetit.com/recipe/red-pesto-pasta'},
+	url: 'https://www.bonappetit.com/recipe/red-pesto-pasta',
+	image: 'https://assets.bonappetit.com/photos/5cf033fa89bca61b2a011926/16:9/w_2056,c_limit/red-pesto-2.jpg' },
 
 { user_id: 3, 
 	title:'Tropical Mango Spring Rolls with Avocado-Cilantro Dipping Sauce', 
@@ -64,12 +68,14 @@ Recipe.create([
 	To make your avocado sauce, combine the avocado, lime juice, water, cilantro and salt in a small food processor or blender. Purée until smooth and transfer to a small serving bowl. If you won’t be serving the rolls immediately, press plastic wrap against the surface of the dip to prevent oxidation.
 	Slice the rolls in half on the diagonal with a sharp chef’s knife or serve whole, with avocado dipping sauce on the side.', 
 	category: 'vegetarian', 
-	url: 'https://cookieandkate.com/tropical-mango-spring-rolls/'},
+	url: 'https://cookieandkate.com/tropical-mango-spring-rolls/',
+	image: 'https://cookieandkate.com/images/2015/04/tropical-mango-spring-rolls-1.jpg' },
 
 { user_id: 3, 
 	title:'Avocado Peach Salsa', 
 	instructions: 'Toss all of the chopped ingredients together in a bowl. Squeeze the lime and a drizzle of vinegar over the top. Toss and add salt to taste.', 
 	category: 'salad', 
-	url: 'https://cookieandkate.com/avocado-peach-salsa-recipe/'},
+	url: 'https://cookieandkate.com/avocado-peach-salsa-recipe/',
+	image: 'https://cookieandkate.com/images/2011/08/peach-salsa-2.jpg' },
 ])
 

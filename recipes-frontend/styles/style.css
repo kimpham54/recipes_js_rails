@@ -7,11 +7,20 @@ body {
 }
 
 a {
-  color: #097659;
+  color: Black;
+}
+
+a:hover {
+  color: Tomato;
 }
 
 input {
   font-size: 1.5em;
+}
+
+textarea {
+  font-size: 0.75em;
+  border: 1px solid light-grey;
 }
 
 .container {
@@ -35,19 +44,26 @@ ul {
 
 #recipes-content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 3fr 3fr;
   grid-gap: 10px;
+}
+
+img {
+  width: 200px;
+  padding: 10px;
+}
+
+.li-recipe{
+ padding-top: 50px; 
 }
 
 
 
 
 
-
-
 /* Style buttons */
-.deletebtn {
-  background-color: Black; /* Blue background */
+.deletebtn, .savebtn {
+  background-color: Black; /* Black background */
   border: none; /* Remove borders */
   color: white; /* White text */
   padding: 5px 5px; /* Some padding */
@@ -56,6 +72,6 @@ ul {
 }
 
 /* Darker background on mouse-over */
-.deletebtn:hover {
+.deletebtn:hover, .savebtn:hover {
   background-color: Tomato;
 }

@@ -11,19 +11,19 @@
   <!-- Add icon library for delete button -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  <title>Recipes App</title>
+  <title>Recipes Collection</title>
 </head>
 
 <body>
   <div class="container">
-    <h1>Recipe App</h1>
+    <h1>Recipe Collection</h1>
     <div id="new-recipe-container">
       <form id="new-recipe-form">
         Title
         <input type="text" name="recipe-body" id="new-recipe-body">
         <br/>
         Instructions
-        <input type="textarea" name="recipe-body" id="new-recipe-instructions">
+        <textarea rows="5" cols="40" name="recipe-body" id="new-recipe-instructions"></textarea>
         <br/>
         Category
         <input type="text" name="recipe-body" id="new-recipe-category">
@@ -31,7 +31,10 @@
         Source URL
         <input type="text" name="recipe-body" id="new-recipe-url">
         <br/>
-        <input type="submit" value="Save recipe">
+        Image
+        <input type="text" name="recipe-body" id="new-recipe-image">
+        <br/>
+        <input type="submit" class="savebtn" value="Save recipe">
 
       </form>
     </div>
