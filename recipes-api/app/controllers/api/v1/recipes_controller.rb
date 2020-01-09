@@ -2,7 +2,11 @@ class Api::V1::RecipesController < ApplicationController
 	
 	def index
 		# get list of recipes
-		@recipes = Recipe.all
+		if params[:user_id]
+			@recipes = User.find(params[:user_id]).recipes
+		else
+			@recipes = Recipe.all
+		end
 		render json: @recipes, status: 200
 	end
 
@@ -31,7 +35,7 @@ class Api::V1::RecipesController < ApplicationController
 
 	private
 	def recipe_params
-		params.require(:recipe).permit(:user_id, :title, :instructions, :category, :url)
+		params.require(:recipe).permit(:user_id, :title, :instructions, :category, :url, :image)
 	end
 
 end

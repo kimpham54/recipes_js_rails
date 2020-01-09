@@ -16,7 +16,7 @@
 
 <body>
   <div class="container">
-    <h1>Recipe Collection</h1>
+    <h1>Recipe Collection - All items</h1>
     <div id="new-recipe-container">
       <form id="new-recipe-form">
         Title
@@ -34,9 +34,13 @@
         Image
         <input type="text" name="recipe-body" id="new-recipe-image">
         <br/>
+        User ID
+        <input type="text" name="recipe-body" id="new-recipe-userid">
+        <br/>
+        <!-- TODO ideally dropdown and ideally get user name not just id -->
         <input type="submit" class="savebtn" value="Save recipe">
-
       </form>
+      <button id="user1">user 1</button>
     </div>
     <div id="recipes-content">
       <ul id="recipes-container">

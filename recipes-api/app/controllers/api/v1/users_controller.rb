@@ -7,8 +7,9 @@ class Api::V1::UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-
 		render json: @user, status: 200
+
+		# render json: {test: @user}, status: 200
 	end
 
 	def create
@@ -30,7 +31,7 @@ class Api::V1::UsersController < ApplicationController
 
 	private
   def user_params
-    params.require(:user).permit(:username, :name, :email, :password)
+    params.require(:user).require(:attributes).permit(:username, :name, :email, :password, recipe_attributes: [:title, :instructions, :category, :url, :image])
   end
 
 end

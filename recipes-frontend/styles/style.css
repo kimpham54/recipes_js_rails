@@ -24,9 +24,10 @@ textarea {
 }
 
 .container {
-  width: 960px;
+  width: 1160px;
   margin: auto;
   margin-top: 50px;
+  margin-left: 50px;
 }
 
 ul {
@@ -57,12 +58,15 @@ img {
  padding-top: 50px; 
 }
 
+.li{
+ font-size: 0.5em; 
+}
 
 
 
 
 /* Style buttons */
-.deletebtn, .savebtn {
+.deletebtn, .savebtn, .user1test {
   background-color: Black; /* Black background */
   border: none; /* Remove borders */
   color: white; /* White text */

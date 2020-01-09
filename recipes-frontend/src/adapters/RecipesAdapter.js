@@ -9,14 +9,24 @@ class RecipesAdapter {
 		return fetch(this.baseUrl).then(res => res.json())
 	}
 
-	createRecipe(value, value2, value3, value4, value5) {
+	createRecipe(value, value2, value3, value4, value5, value6) {
 		const recipe = {
 			title: value,
 			instructions: value2,
 			category: value3,
 			url: value4,
 			image: value5,
+			user_id: value6,
 		}
+
+		// const girl = {
+		// 		"user_id": 2,
+		// 		"recipe_attributes": {
+		// 			"title": "GIRL",
+		// 			"category": "BOY",
+		// 			"url": "LOVE"}
+		// }
+		// console.log(JSON.stringify({ girl }))
 
 		return fetch(this.baseUrl, {
 			method: 'POST',
