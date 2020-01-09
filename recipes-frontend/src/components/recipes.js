@@ -9,6 +9,7 @@ class Recipes{
 
 	initBindingsAndEventListeners(){
 		this.recipesContainer = document.getElementById('recipes-container')
+		this.recipesContainer2 = document.getElementById('new-recipe-container')
 		this.body = document.querySelector('body')
 		this.newRecipeBody = document.getElementById('new-recipe-body')
 		this.newRecipeInstructions = document.getElementById('new-recipe-instructions')
@@ -20,12 +21,13 @@ class Recipes{
 		this.recipeForm = document.getElementById('new-recipe-form')
 		this.recipeForm.addEventListener('submit', this.createRecipe.bind(this))
 
-		this.viewuser1 = document.getElementById('user1')
-		this.viewuser1.addEventListener('click', this.fetchAndLoadRecipesUser.bind(this))
+		// this.viewuser1 = document.getElementsByClassName('user1')
+		// this.viewuser1.addEventListener('click', this.fetchAndLoadRecipesUser.bind(this))
 
 		this.recipesContainer.addEventListener('dblclick', this.handleRecipeDoubleClick.bind(this))
 		this.recipesContainer.addEventListener('blur', this.updateRecipe.bind(this), true)
 		this.recipesContainer.addEventListener('click', this.handleRecipeSingleClick.bind(this))
+		this.recipesContainer2.addEventListener('click', this.handleRecipeSingleClick.bind(this))
 		// updateRecipe previously used body
 	}
 
@@ -40,8 +42,12 @@ class Recipes{
 		console.log("value5 is"+value5)
 		this.adapter.createRecipe(value, value2, value3, value4, value5, value6).then(recipe => {
 			this.recipes.push(new Recipe(recipe))
-			this.newRecipeBody.value = ''
-			this.newRecipeInstructions.value = ''
+			this.newRecipeBody.value = ""
+			this.newRecipeInstructions.value = ""
+			this.newRecipeCategory.value = ""
+			this.newRecipeUrl.value = ""
+			this.newRecipeImage.value = ""
+			this.newRecipeUserID.value = ""
 			// single page delete form value after submit
 			console.log(recipe)
 			this.render()
@@ -61,6 +67,9 @@ class Recipes{
 		// className, tagName, id
 		if (e.target.className == 'deletebtn'){
 			this.deleteRecipe(e)
+		}
+		if (e.target.className == 'user1'){
+			this.fetchAndLoadRecipesUser(e)
 		}
 	}
 
@@ -93,12 +102,7 @@ class Recipes{
 		// console.log("li.dataset.id is " + id)
 		this.adapter.updateRecipe(title, category, url, id)
 		// better if updated just one field only, rest or spread or optional arguments?
-			const recipe = {
-			title: value,
-			category: value3,
-			url: value4,
-		}
-		console.log(JSON.stringify({ recipe }))
+
 
 	}
 
@@ -125,34 +129,71 @@ class Recipes{
 			recipes.sort((a,b)=>a.id - b.id).forEach(recipe => this.recipes.push(new Recipe(recipe)))
 			// console.log(this.recipes)
 		})
+		
 		.then(()=>{
+			// this.clearrender()
 			this.render()
 		})
 	}
 
-	fetchAndLoadRecipesUser(){
-		console.log("fetchAndLoadRecipesUser")
+	fetchAndLoadRecipesUser(e){
+		const button = e.target
+		const id = button.dataset.id
+
+		// this.adapter
+		// .getRecipes()
+		this.recipes.length = 0
+		
+		// .then(()=>{
+		// 	this.recipes.length = 0
+		// })
 		this.adapter
 		.getRecipes()
 		.then(recipes => {
-			recipes.filter(item => item.user_id == 1).forEach(recipe => this.recipes.push(new Recipe(recipe)))
+			recipes.filter(item => item.user_id == id).forEach(recipe => this.recipes.push(new Recipe(recipe)))
 			console.log(this.recipes)
 			console.log(recipes)
 
 		})
+		// .then(recipes =>{
+		// 	this.recipesContainer.innerHTML = "VALUE!!!!!!!"
+		// 	// this.render()
+		// })
 		.then(()=>{
+			// this.clearrender()
 			this.render()
 		})
 	}
 
+	// clearrender(){
+		// console.log("render clearrender")
+		// this.recipes.length = 0
+		// this.recipes = []
+		// this.recipesContainer.innerHTML = "VALUE!!!!!!!"
+		// console.log(this.recipesContainer.innerHTML)
+	// }
+	
 	render(){
+		console.log("render renderrrrr!!!!!!!!")
+
+		// this.recipes = []
+		// console.log("id is" + id)
+		this.recipesContainer.innerHTML = this.recipes.map(recipe => recipe.renderli()).join('')
+		console.log(this.recipes.length)
+		// TODO when in user view, when a new recipe is added and user_id is not the one it still appears in bottom
+
 		// console.log('rendering...')
 		// const recipesStuff = this.recipes.map(recipe => `<li>${recipe.body}</li>`).join('')
 		// console.log(recipesStuff)
 		// const recipesContainer = document.getElementById('recipes-container')
 		// recipesContainer.innerHTML = 'my recipes here'
 		// console.log('my recipes are', this.recipes)
-		this.recipesContainer.innerHTML = this.recipes.map(recipe => recipe.renderli()).join('')
+		// clear(){
+		// 	return (this.recipesContainer.innerHTML = "value")
+		// }
+		// this.recipesContainer.innerHTML = "all clear"			
+		// return (this.recipesContainer.innerHTML = "value")
+		// return (this.recipesContainer.innerHTML = this.recipes.map(recipe => recipe.renderli()).join(''))
 		
 	}
 }
