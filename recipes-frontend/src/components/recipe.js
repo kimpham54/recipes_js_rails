@@ -20,8 +20,24 @@ class Recipe{
 		<li data-id=${this.id} class="li-image"><img src='${this.image}' /></li>
 		</ul>
 		</li>
-		<button data-id=${this.id} class="deletebtn" type="deletebtn">delete</button>`
+		<button data-id=${this.id} class="deletebtn" type="deletebtn">delete</button>
+
+
+		<div>
+  		<input type="checkbox"  data-id=${this.id} id="scales" class="checkboxscales">
+  		<label for="Favourite">Favourite</label>
+		</div>
+
+		`
 	}
+
+		// too complicated with the class changes
+		// <!-- Rectangular switch -->
+		// <label class="switch">
+		//   <input data-id=${this.id} class="switchcheckbox" type="checkbox">
+		//   <!-- <input class="switchcheckbox" type="checkbox" checked> -->
+		//   <span data-id=${this.id} id="favouriteswitch" class="slider"></span>
+		// </label>
 
 	// renderdeletebutton(){
 	// 	return `<button class="btn"><i class="fa fa-close"></i></button>`

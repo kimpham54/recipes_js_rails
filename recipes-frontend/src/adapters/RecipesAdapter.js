@@ -56,6 +56,37 @@ class RecipesAdapter {
 		.then(res => res.json())
 	}
 
+// TODO CLEAN UPDATE CODE
+	updateFavouriteRecipeTrue(id){
+		const recipe = {
+			favourite: true,
+		}
+
+		return fetch(`${this.baseUrl}/${id}`, {
+			method: 'PATCH',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify({ recipe })
+		})
+		.then(res => res.json())
+	}
+
+		updateFavouriteRecipeFalse(id){
+		const recipe = {
+			favourite: false,
+		}
+
+		return fetch(`${this.baseUrl}/${id}`, {
+			method: 'PATCH',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify({ recipe })
+		})
+		.then(res => res.json())
+	}
+
 	deleteRecipe(id){
 		const recipe = {
 			id: id,

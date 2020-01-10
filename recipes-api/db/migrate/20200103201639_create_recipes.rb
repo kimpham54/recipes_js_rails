@@ -10,6 +10,7 @@ class CreateRecipes < ActiveRecord::Migration[6.0]
       # t.string :tags
       t.timestamps
       t.belongs_to :user, index:true, foreign_key:true
+      t.boolean :favourite, :default => false
     end
   end
 end

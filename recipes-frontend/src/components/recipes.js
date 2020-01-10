@@ -28,6 +28,8 @@ class Recipes{
 		this.recipesContainer.addEventListener('blur', this.updateRecipe.bind(this), true)
 		this.recipesContainer.addEventListener('click', this.handleRecipeSingleClick.bind(this))
 		this.recipesContainer2.addEventListener('click', this.handleRecipeSingleClick.bind(this))
+
+		// this.favouriteRecipeSwitch.addEventListener('click', this.handleRecipeSingleClick.bind(this))
 		// updateRecipe previously used body
 	}
 
@@ -59,17 +61,21 @@ class Recipes{
 
 	handleRecipeDoubleClick(e){
 		this.toggleRecipe(e)
-		console.log(e.target.tagName)
+		console.log("e.target.tagName is " + e.target.tagName)
 	}
 
 	handleRecipeSingleClick(e){
-		console.log(e.target.className)
+		console.log("e.target.className is " + e.target.className)
 		// className, tagName, id
 		if (e.target.className == 'deletebtn'){
 			this.deleteRecipe(e)
 		}
 		if (e.target.className == 'user1'){
 			this.fetchAndLoadRecipesUser(e)
+		}
+
+		if(e.target.id == 'scales'){
+			this.updateFavouriteRecipe(e)
 		}
 	}
 
@@ -82,29 +88,53 @@ class Recipes{
 	}
 
 	updateRecipe(e){
-		console.log("e.target is " + e.target.className)
+		console.log("e.target.className is " + e.target.className)
 		const li = e.target
-		li.contentEditable = false
-		li.classList.remove('editable')
-		// const newValue = li.innerHTML
-		const id = li.dataset.id
-		console.log(e.target)
-		let title = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-title`).innerHTML
-		let category = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-category`).innerHTML
-		let url = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-url`).innerHTML
-		// future enhancement: update image
+		if (li.tagName == "LI"){
+			li.contentEditable = false
+			li.classList.remove('editable')
+			// const newValue = li.innerHTML
+
+			const id = li.dataset.id
+			let title = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-title`).innerHTML
+			let category = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-category`).innerHTML
+			let url = document.querySelector(`li[data-id='${CSS.escape(id)}'].li-url`).innerHTML
+
+			// if span class changes to slider eitable or contenteditbale = true
+			// then value of favourite is true
+			// TODO future enhancement: update image
+			// console.log("title is " + title)
+			// console.log("category is " + category)
+			// console.log("url is " + url)
+			// console.log("e.target id is " + id)
+			// console.log("e.target classname" + e.target.className)
+			// console.log("li.dataset.id is " + id)
 		
-		// console.log("title is " + title)
-		// console.log("category is " + category)
-		// console.log("url is " + url)
-		// console.log("e.target id is " + id)
-		// console.log("e.target classname" + e.target.className)
-		// console.log("li.dataset.id is " + id)
-		this.adapter.updateRecipe(title, category, url, id)
+			this.adapter.updateRecipe(title, category, url, id)
+		}
 		// better if updated just one field only, rest or spread or optional arguments?
 
 
 	}
+
+	updateFavouriteRecipe(e){
+		// this could maybe go in updateRecipe
+		// TODO ADD CLICK HANDLER FOR LIKING A RECIPE if addeventlistened 'change checked' or check checked status
+		// let favourite = document.getElementById('favouriteswitch')
+		if (e.target.checked) {
+			console.log("checked")
+			console.log("updateFavouriteRecipe is " + e.target.id + e.target.dataset.id)
+			this.adapter.updateFavouriteRecipeTrue(e.target.id)
+		}
+		else {
+			console.log("not checked")
+			console.log("updateFavouriteRecipe is " + e.target.id + e.target.dataset.id)
+			this.adapter.updateFavouriteRecipeFalse(e.target.id)
+			}
+		// e.target.id is favouriteswitch
+		}
+		
+
 
 	deleteRecipe(e){
 		// console.log(e.target)
