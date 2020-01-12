@@ -123,13 +123,13 @@ class Recipes{
 		// let favourite = document.getElementById('favouriteswitch')
 		if (e.target.checked) {
 			console.log("checked")
-			console.log("updateFavouriteRecipe is " + e.target.id + e.target.dataset.id)
-			this.adapter.updateFavouriteRecipeTrue(e.target.id)
+			console.log("updateFavouriteRecipe is checked " + e.target.id + e.target.dataset.id)
+			this.adapter.updateFavouriteRecipeTrue(e.target.dataset.id)
 		}
 		else {
 			console.log("not checked")
-			console.log("updateFavouriteRecipe is " + e.target.id + e.target.dataset.id)
-			this.adapter.updateFavouriteRecipeFalse(e.target.id)
+			console.log("updateFavouriteRecipe is not checked " + e.target.id + e.target.dataset.id)
+			this.adapter.updateFavouriteRecipeFalse(e.target.dataset.id)
 			}
 		// e.target.id is favouriteswitch
 		}

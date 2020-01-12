@@ -56,8 +56,9 @@ class RecipesAdapter {
 		.then(res => res.json())
 	}
 
-// TODO CLEAN UPDATE CODE
+// TODO MAKE UPDATE FAVOURITES BOOLEAN DRY
 	updateFavouriteRecipeTrue(id){
+		console.log("updateFavouriteRecipeTrue")
 		const recipe = {
 			favourite: true,
 		}
@@ -72,7 +73,8 @@ class RecipesAdapter {
 		.then(res => res.json())
 	}
 
-		updateFavouriteRecipeFalse(id){
+	updateFavouriteRecipeFalse(id){
+		console.log("updateFavouriteRecipeFalse")
 		const recipe = {
 			favourite: false,
 		}
