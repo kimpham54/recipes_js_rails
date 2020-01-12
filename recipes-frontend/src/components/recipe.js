@@ -13,7 +13,7 @@ class Recipe{
 	renderli(){
 
 
-		// TODO not DRY, repeating item data load
+		// TODO not DRY, repeating item data load, somehow remove checkbox and add conditional on that only
 		if (this.favourite == true){
 			return`
 				<li data-id=${this.id} class="li-recipe">${this.id}
