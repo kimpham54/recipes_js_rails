@@ -1,5 +1,5 @@
-class Recipes{
-	constructor(){
+class Recipes {
+	constructor() {
 		this.recipes = []
 		this.adapter = new RecipesAdapter()
 		this.initBindingsAndEventListeners()
@@ -7,7 +7,7 @@ class Recipes{
 
 	}
 
-	initBindingsAndEventListeners(){
+	initBindingsAndEventListeners() {
 		this.recipesContainer = document.getElementById('recipes-container')
 		this.recipesContainer2 = document.getElementById('new-recipe-container')
 		this.body = document.querySelector('body')
@@ -33,7 +33,7 @@ class Recipes{
 		// updateRecipe previously used body
 	}
 
-	createRecipe(e){
+	createRecipe(e) {
 		e.preventDefault()
 		const value = this.newRecipeBody.value
 		const value2 = this.newRecipeInstructions.value
@@ -41,7 +41,7 @@ class Recipes{
 		const value4 = this.newRecipeUrl.value
 		const value5 = this.newRecipeImage.value
 		const value6 = this.newRecipeUserID.value
-		console.log("value5 is"+value5)
+		console.log("value5 is" + value5)
 		this.adapter.createRecipe(value, value2, value3, value4, value5, value6).then(recipe => {
 			this.recipes.push(new Recipe(recipe))
 			this.newRecipeBody.value = ""
@@ -59,27 +59,27 @@ class Recipes{
 		// console.log('recipe is being created')
 	}
 
-	handleRecipeDoubleClick(e){
+	handleRecipeDoubleClick(e) {
 		this.toggleRecipe(e)
 		console.log("e.target.tagName is " + e.target.tagName)
 	}
 
-	handleRecipeSingleClick(e){
+	handleRecipeSingleClick(e) {
 		console.log("e.target.className is " + e.target.className)
 		// className, tagName, id
-		if (e.target.className == 'deletebtn'){
+		if (e.target.className == 'deletebtn') {
 			this.deleteRecipe(e)
 		}
-		if (e.target.className == 'user1'){
+		if (e.target.className == 'user1') {
 			this.fetchAndLoadRecipesUser(e)
 		}
 
-		if(e.target.id == 'scales'){
+		if (e.target.id == 'scales') {
 			this.updateFavouriteRecipe(e)
 		}
 	}
 
-	toggleRecipe(e){
+	toggleRecipe(e) {
 		const li = e.target
 		li.contentEditable = true
 		li.focus()
@@ -87,10 +87,10 @@ class Recipes{
 
 	}
 
-	updateRecipe(e){
+	updateRecipe(e) {
 		console.log("e.target.className is " + e.target.className)
 		const li = e.target
-		if (li.tagName == "LI"){
+		if (li.tagName == "LI") {
 			li.contentEditable = false
 			li.classList.remove('editable')
 			// const newValue = li.innerHTML
@@ -109,7 +109,7 @@ class Recipes{
 			// console.log("e.target id is " + id)
 			// console.log("e.target classname" + e.target.className)
 			// console.log("li.dataset.id is " + id)
-		
+
 			this.adapter.updateRecipe(title, category, url, id)
 		}
 		// better if updated just one field only, rest or spread or optional arguments?
@@ -117,7 +117,7 @@ class Recipes{
 
 	}
 
-	updateFavouriteRecipe(e){
+	updateFavouriteRecipe(e) {
 		// this could maybe go in updateRecipe
 		// TODO ADD CLICK HANDLER FOR LIKING A RECIPE if addeventlistened 'change checked' or check checked status
 		// let favourite = document.getElementById('favouriteswitch')
@@ -130,13 +130,13 @@ class Recipes{
 			console.log("not checked")
 			console.log("updateFavouriteRecipe is not checked " + e.target.id + e.target.dataset.id)
 			this.adapter.updateFavouriteRecipeFalse(e.target.dataset.id)
-			}
-		// e.target.id is favouriteswitch
 		}
-		
+		// e.target.id is favouriteswitch
+	}
 
 
-	deleteRecipe(e){
+
+	deleteRecipe(e) {
 		// console.log(e.target)
 		const btn = e.target
 		// console.log("btn is"+ btn)
@@ -150,60 +150,60 @@ class Recipes{
 
 	}
 
-	fetchAndLoadRecipes(){
+	fetchAndLoadRecipes() {
 		this.adapter
-		.getRecipes()
-		.then(recipes => {
-			// (recipes.filter(item.id=1).forEach(recipe => this.recipes.push(new Recipe(recipe)))
-			// recipes.forEach(recipe => this.recipes.push(recipe))
-			recipes.sort((a,b)=>a.id - b.id).forEach(recipe => this.recipes.push(new Recipe(recipe)))
-			// console.log(this.recipes)
-		})
-		
-		.then(()=>{
-			// this.clearrender()
-			this.render()
-		})
+			.getRecipes()
+			.then(recipes => {
+				// (recipes.filter(item.id=1).forEach(recipe => this.recipes.push(new Recipe(recipe)))
+				// recipes.forEach(recipe => this.recipes.push(recipe))
+				recipes.sort((a, b) => a.id - b.id).forEach(recipe => this.recipes.push(new Recipe(recipe)))
+				// console.log(this.recipes)
+			})
+
+			.then(() => {
+				// this.clearrender()
+				this.render()
+			})
 	}
 
-	fetchAndLoadRecipesUser(e){
+	fetchAndLoadRecipesUser(e) {
 		const button = e.target
 		const id = button.dataset.id
 
 		// this.adapter
 		// .getRecipes()
 		this.recipes.length = 0
-		
+
 		// .then(()=>{
 		// 	this.recipes.length = 0
 		// })
 		this.adapter
-		.getRecipes()
-		.then(recipes => {
-			recipes.filter(item => item.user_id == id).forEach(recipe => this.recipes.push(new Recipe(recipe)))
-			console.log(this.recipes)
-			console.log(recipes)
+			.getRecipes()
+			.then(recipes => {
+				recipes.filter(item => item.user_id == id).forEach(recipe => this.recipes.push(new Recipe(recipe)))
+				console.log(this.recipes)
+				console.log(recipes)
 
-		})
-		// .then(recipes =>{
-		// 	this.recipesContainer.innerHTML = "VALUE!!!!!!!"
-		// 	// this.render()
-		// })
-		.then(()=>{
-			// this.clearrender()
-			this.render()
-		})
+			})
+			// .then(recipes =>{
+			// 	this.recipesContainer.innerHTML = "VALUE!!!!!!!"
+			// 	// this.render()
+			// })
+			.then(() => {
+				// this.clearrender()
+				this.render()
+			})
 	}
 
 	// clearrender(){
-		// console.log("render clearrender")
-		// this.recipes.length = 0
-		// this.recipes = []
-		// this.recipesContainer.innerHTML = "VALUE!!!!!!!"
-		// console.log(this.recipesContainer.innerHTML)
+	// console.log("render clearrender")
+	// this.recipes.length = 0
+	// this.recipes = []
+	// this.recipesContainer.innerHTML = "VALUE!!!!!!!"
+	// console.log(this.recipesContainer.innerHTML)
 	// }
-	
-	render(){
+
+	render() {
 		console.log("render renderrrrr!!!!!!!!")
 
 		// this.recipes = []
@@ -224,6 +224,6 @@ class Recipes{
 		// this.recipesContainer.innerHTML = "all clear"			
 		// return (this.recipesContainer.innerHTML = "value")
 		// return (this.recipesContainer.innerHTML = this.recipes.map(recipe => recipe.renderli()).join(''))
-		
+
 	}
 }

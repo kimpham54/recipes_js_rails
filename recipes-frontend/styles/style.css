@@ -4,6 +4,11 @@ body {
   font-weight: 300;
   line-height: 1.6em;
   font-size: 1.3em;
+  background:
+    linear-gradient(to top, rgb(234, 179, 8), rgb(255, 237, 213), rgb(203, 213, 225));
+  background-image: url(download.jpeg);
+
+
 }
 
 a {
@@ -24,7 +29,7 @@ textarea {
 }
 
 .container {
-  width: 1160px;
+  /* min-width: 1160px; */
   margin: auto;
   margin-top: 50px;
   margin-left: 50px;
@@ -43,40 +48,52 @@ ul {
   padding: 20px;
 }
 
-#recipes-content {
+/* #recipes-content {
   display: grid;
   grid-template-columns: 3fr 3fr;
   grid-gap: 10px;
-}
+} */
 
 img {
   width: 200px;
   padding: 10px;
 }
 
-.li-recipe{
- padding-top: 50px; 
+.li-recipe {
+  padding-top: 50px;
 }
 
-.li{
- font-size: 0.5em; 
+.li {
+  font-size: 0.3em;
 }
 
 
+.li-instructions {
+  font-size: 15px;
+}
 
 
 /* Style buttons */
-.deletebtn, .savebtn, .user1test {
-  background-color: Black; /* Black background */
-  border: none; /* Remove borders */
-  color: white; /* White text */
-  padding: 5px 5px; /* Some padding */
-  font-size: 10px; /* Set a font size */
-  cursor: pointer; /* Mouse pointer on hover */
+.deletebtn,
+.savebtn,
+.user1test {
+  background-color: Black;
+  /* Black background */
+  border: none;
+  /* Remove borders */
+  color: white;
+  /* White text */
+  padding: 5px 5px;
+  /* Some padding */
+  font-size: 10px;
+  /* Set a font size */
+  cursor: pointer;
+  /* Mouse pointer on hover */
 }
 
 /* Darker background on mouse-over */
-.deletebtn:hover, .savebtn:hover {
+.deletebtn:hover,
+.savebtn:hover {
   background-color: Tomato;
 }
 
